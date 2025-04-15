@@ -1,1 +1,1 @@
- export const DB_NAME="Node";
+ export const DB_NAME="ChaiCode";
