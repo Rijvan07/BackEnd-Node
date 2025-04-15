@@ -49,11 +49,9 @@ const registerUser = asyncHandler( async (req, res)=>{
     if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length >0 ){
         coverImageLocalPath = req.files.coverImage[0].path
     }
-
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is required")
     }
-
     const avatar = await uploadOnCloudinary(avatarLocalPath);
     const coverImage = await uploadOnCloudinary(coverImageLocalPath);
 
@@ -81,6 +79,20 @@ const registerUser = asyncHandler( async (req, res)=>{
     return res.status(200).json(
         new ApiResponse(200, createUser, "User register Successfully")
     )
+})
+
+const loginUser = asyncHandler (async (req,res) =>{
+    //Algorithem --->
+    // req.body -> data
+    // userName & email
+    // find the user
+    // password check
+    // access & refreshToken 
+    // send cookie
+
+    const {username, email, password} = req.body;
+
+    
 })
 
 export {registerUser}
